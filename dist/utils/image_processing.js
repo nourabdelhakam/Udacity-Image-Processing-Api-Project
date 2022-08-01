@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const sharp = require('sharp');
 const path = require('path');
-const fs = require('fs');
 function image_processing(imgName, imgWidth, imgHeight) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => {
