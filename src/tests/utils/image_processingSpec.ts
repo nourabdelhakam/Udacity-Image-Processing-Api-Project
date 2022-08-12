@@ -1,17 +1,13 @@
 import image_processing from '../../utils/image_processing';
-const path = require('path');
 
 describe('image_processing func testing', () => {
   it('should get the processed image with the specified width and height', async () => {
-    const ImgSrc: string =
-      path.resolve('./') + `/public/assets/images/processing_img/space_1.png`;
+    const filename = 'space_1';
+    const width = 300;
+    const height = 300;
 
-    await image_processing(ImgSrc, 300, 300);
+    const res = await image_processing(filename, width, height);
 
-    const ImgProcessed: string =
-      path.resolve('./') +
-      `/public/assets/images/thumbnails/space_1_300-300.png`;
-
-    expect(ImgProcessed).toBeTruthy();
+    expect(res).toBeTruthy();
   });
 });

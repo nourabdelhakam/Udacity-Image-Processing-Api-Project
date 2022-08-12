@@ -16,6 +16,8 @@ async function image_processing(
       const img_location =
         path.resolve('./') +
         `/public/assets/images/thumbnails/${imgName}_${imgWidth}-${imgHeight}.png`;
+      console.log('img_location', img_location);
+
       resolve(img_location);
     } catch (error) {
       reject();

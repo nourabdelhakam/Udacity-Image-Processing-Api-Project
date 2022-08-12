@@ -8,7 +8,6 @@ describe('Endpoint response Test', () => {
     const response = await request.get(
       '/api/images?filename=space_1&width=300&height=300/'
     );
-    console.log('response', response);
 
     expect(response.status).toBe(200);
   });

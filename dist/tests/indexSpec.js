@@ -14,7 +14,6 @@ const request = supertest(app);
 describe('Endpoint response Test', () => {
     it('should gets valid api endpoint response', () => __awaiter(void 0, void 0, void 0, function* () {
         const response = yield request.get('/api/images?filename=space_1&width=300&height=300/');
-        console.log('response', response);
         expect(response.status).toBe(200);
     }));
 });

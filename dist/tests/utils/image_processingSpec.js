@@ -13,14 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const image_processing_1 = __importDefault(require("../../utils/image_processing"));
-const path = require('path');
 describe('image_processing func testing', () => {
     it('should get the processed image with the specified width and height', () => __awaiter(void 0, void 0, void 0, function* () {
-        const ImgSrc = path.resolve('./') + `/public/assets/images/processing_img/space_1.png`;
-        yield (0, image_processing_1.default)(ImgSrc, 300, 300);
-        const ImgProcessed = path.resolve('./') +
-            `/public/assets/images/thumbnails/space_1_300-300.png`;
-        expect(ImgProcessed).toBeTruthy();
+        const filename = 'space_1';
+        const width = 300;
+        const height = 300;
+        const res = yield (0, image_processing_1.default)(filename, width, height);
+        expect(res).toBeTruthy();
     }));
 });
 //# sourceMappingURL=image_processingSpec.js.map

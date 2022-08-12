@@ -20,6 +20,7 @@ function image_processing(imgName, imgWidth, imgHeight) {
                     .toFile(`./public/assets/images/thumbnails/${imgName}_${imgWidth}-${imgHeight}.png`);
                 const img_location = path.resolve('./') +
                     `/public/assets/images/thumbnails/${imgName}_${imgWidth}-${imgHeight}.png`;
+                console.log('img_location', img_location);
                 resolve(img_location);
             }
             catch (error) {

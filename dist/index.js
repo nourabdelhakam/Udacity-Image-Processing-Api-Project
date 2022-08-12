@@ -15,5 +15,5 @@ app.use('/api', [resizeimg_1.default]);
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
-exports.default = app;
+module.exports = app;
 //# sourceMappingURL=index.js.map
