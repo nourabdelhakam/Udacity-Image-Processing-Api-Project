@@ -12,7 +12,7 @@ app.use('/api', [ResizeIMG]);
 //   res.sendFile(path.resolve('./') + `/assets/thumbnails/space_1_300-300.png`)
 // })
 
-app.listen(port, () => {
+app.listen(port, (): void => {
   console.log(`server started at http://localhost:${port}`);
 });
 
