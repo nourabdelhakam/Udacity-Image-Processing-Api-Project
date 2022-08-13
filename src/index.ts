@@ -2,7 +2,7 @@ import express from 'express';
 import ResizeIMG from './routes/API/resizeimg';
 
 const app = express();
-const port = 3030;
+const port: number = 3030;
 
 app.use('/api', [ResizeIMG]);
 
