@@ -12,13 +12,30 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const supertest = require('supertest');
-const index_1 = __importDefault(require("../index"));
-const request = supertest(index_1.default);
-describe('GET /', () => {
-    it('should gets valid api endpoint response', () => __awaiter(void 0, void 0, void 0, function* () {
-        const response = yield request.get('/');
-        expect(response.status).toBe(200);
-    }));
+const sharp = require('sharp');
+const promises_1 = __importDefault(require("fs/promises"));
+const image_processer = ({ width, height, filePathFullImage, filePathThumbImage, }) => __awaiter(void 0, void 0, void 0, function* () {
+    const data = yield promises_1.default
+        .readFile(filePathFullImage)
+        .catch(() => null);
+    if (!data) {
+        return Promise.reject();
+    }
+    const imageBuffer = yield sharp(data)
+        .resize(width, height)
+        .toBuffer()
+        .catch(() => null);
+    if (!imageBuffer) {
+        return Promise.reject();
+    }
+    return promises_1.default
+        .writeFile(filePathThumbImage, imageBuffer)
+        .then(() => {
+        return imageBuffer;
+    })
+        .catch(() => {
+        return Promise.reject();
+    });
 });
-//# sourceMappingURL=indexSpec.js.map
+exports.default = image_processer;
+//# sourceMappingURL=image_processer.js.map

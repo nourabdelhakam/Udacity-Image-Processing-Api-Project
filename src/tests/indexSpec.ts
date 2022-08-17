@@ -1,14 +1,12 @@
 const supertest = require('supertest');
-const app = require('../index');
+import app from '../index';
 
 const request = supertest(app);
 
-describe('Endpoint response Test', () => {
+describe('GET /', (): void => {
   it('should gets valid api endpoint response', async (): Promise<void> => {
-    const response = await request.get(
-      '/api/images?filename=space_1&width=300&height=300/'
-    );
+    const response = await request.get('/');
+
     expect(response.status).toBe(200);
   });
-
 });

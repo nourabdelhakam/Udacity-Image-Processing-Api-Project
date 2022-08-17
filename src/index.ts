@@ -1,19 +1,17 @@
-import express from 'express';
-import ResizeIMG from './routes/API/resizeimg';
+import express, { Response } from 'express';
+import routes from './routes/index';
 
 const app = express();
-const port: number = 3030;
+const port = 3003;
 
-app.use('/api', [ResizeIMG]);
+app.use('/api', routes);
 
-// app.use('/static', express.static('assets/imgs'))
-
-// app.get('/try', (req, res) => {
-//   res.sendFile(path.resolve('./') + `/assets/thumbnails/space_1_300-300.png`)
-// })
-
-app.listen(port, (): void => {
-  console.log(`server started at http://localhost:${port}`);
+app.get('/', (_, res: Response): void => {
+  res.status(200).send('Server working!');
 });
 
-module.exports = app;
+app.listen(port, (): void => {
+  console.log(`Server started at http://localhost:${port}`);
+});
+
+export default app;

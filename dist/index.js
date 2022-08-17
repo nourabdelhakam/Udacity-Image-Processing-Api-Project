@@ -4,16 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const resizeimg_1 = __importDefault(require("./routes/API/resizeimg"));
+const index_1 = __importDefault(require("./routes/index"));
 const app = (0, express_1.default)();
-const port = 3030;
-app.use('/api', [resizeimg_1.default]);
-// app.use('/static', express.static('assets/imgs'))
-// app.get('/try', (req, res) => {
-//   res.sendFile(path.resolve('./') + `/assets/thumbnails/space_1_300-300.png`)
-// })
-app.listen(port, () => {
-    console.log(`server started at http://localhost:${port}`);
+const port = 3003;
+app.use('/api', index_1.default);
+app.get('/', (_, res) => {
+    res.status(200).send('Server working!');
 });
-module.exports = app;
+app.listen(port, () => {
+    console.log(`Server started at http://localhost:${port}`);
+});
+exports.default = app;
 //# sourceMappingURL=index.js.map
