@@ -17,7 +17,7 @@ const promises_1 = __importDefault(require("fs/promises"));
 const path_1 = __importDefault(require("path"));
 const listImagesRouter = express_1.default.Router();
 listImagesRouter.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const folderPathFullImage = `${path_1.default.resolve(__dirname, '../../../assets/full')}`;
+    const folderPathFullImage = `${path_1.default.resolve(__dirname, '../../../assets/imgs')}`;
     const files = yield promises_1.default
         .readdir(folderPathFullImage)
         .catch(() => {

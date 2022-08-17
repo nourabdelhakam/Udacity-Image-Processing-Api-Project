@@ -9,7 +9,7 @@ listImagesRouter.get(
   async (_req: Request, res: Response): Promise<void> => {
     const folderPathFullImage = `${path.resolve(
       __dirname,
-      '../../../assets/full'
+      '../../../assets/imgs'
     )}`;
 
     const files: string[] | null = await fs

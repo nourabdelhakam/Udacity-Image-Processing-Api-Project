@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const image_processer_1 = __importDefault(require("../../utils/image_processer"));
-const filePathFullImage = path_1.default.resolve(__dirname, '../../../assets/full/space_1.png');
-const filePathThumbImage = path_1.default.resolve(__dirname, '../../../assets/thumb/space_1.png');
-describe('The imageResizer function', () => {
-    it('returns a buffer after sucessfully resizing an image', () => __awaiter(void 0, void 0, void 0, function* () {
+const filePathFullImage = path_1.default.resolve(__dirname, '../../../assets/imgs/space_1.png');
+const filePathThumbImage = path_1.default.resolve(__dirname, '../../../assets/thumbnails/space_1.png');
+describe('image_processer function', () => {
+    it('returns a buffer after resizing image', () => __awaiter(void 0, void 0, void 0, function* () {
         const imageBuffer = yield (0, image_processer_1.default)({
             height: 100,
             width: 150,
@@ -26,7 +26,7 @@ describe('The imageResizer function', () => {
         });
         expect(imageBuffer).toBeInstanceOf(Buffer);
     }));
-    it('rejects promise if something went wrong', () => __awaiter(void 0, void 0, void 0, function* () {
+    it('rejects something went wrong', () => __awaiter(void 0, void 0, void 0, function* () {
         yield expectAsync((0, image_processer_1.default)({
             height: 100,
             width: 150,

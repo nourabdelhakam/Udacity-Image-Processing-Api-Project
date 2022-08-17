@@ -34,9 +34,9 @@ imageRouter.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         return;
     }
     // get the full path from the filename
-    const filePathFullImage = `${path_1.default.resolve(__dirname, `../../../assets/full/${filename}.png`)}`;
+    const filePathFullImage = `${path_1.default.resolve(__dirname, `../../../assets/imgs/${filename}.png`)}`;
     // thumb path in the ${filename}-${height}x${width} format to save different dimensions
-    const filePathThumbImage = `${path_1.default.resolve(__dirname, `../../../assets/thumb/${filename}-${height}x${width}.png`)}`;
+    const filePathThumbImage = `${path_1.default.resolve(__dirname, `../../../assets/thumbnails/${filename}-${height}x${width}.png`)}`;
     // Check if filename exists in full folder
     const fullImage = yield promises_1.default.stat(filePathFullImage).catch(() => {
         res.status(404).send('Image does not exist');
